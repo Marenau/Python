@@ -1,4 +1,5 @@
 def columnMultiplicationPow(num1, num2):
+    # Функция перевода в двоичную СС
     def toBin(num):
         # Выполнение проверки на 0
         if (num == 0):
@@ -13,6 +14,7 @@ def columnMultiplicationPow(num1, num2):
             num //= 2
         return result[::-1]
 
+    # Фукнкция двоичной суммы
     def binSumm(num1, num2):
         # Находим максимальную длину двоичных чисел a и b
         maxLen = max(len(num1), len(num2))
