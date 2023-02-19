@@ -16,7 +16,6 @@ def noise(x, y):
     sc_y = y * 78.233
     return ( math.sin( sc_x + sc_y ) * 43758.5453123 ) % 1
 
-# Ваш код здесь:
 def func(x, y):
     return noise(x, y), noise(x, y), noise(x, y)
 

@@ -44,8 +44,6 @@ def val_noise(x, y):
 
     return mix(a, b, u1) + (c - a) * u2 * (1 - u1) + (d - b) * u1 * u2
 
-
-# Ваш код здесь:
 def func(x, y):
     # Переменная частоты
     value = 0
