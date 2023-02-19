@@ -39,7 +39,7 @@ def columnMultiplicationPow(num1, num2):
             result = '1' + result
         return result
 
-    # Переводим числа в двоичный формат
+    # Переводим число в двоичный формат
     constNum1 = toBin(num1)
     # Переменная для двоичной суммы
     summ = constNum1

@@ -27,8 +27,8 @@ def mix(x, y, a):
 
 # Алгоритм value noise
 def val_noise(x, y):
-    x *= 20
-    y *= 20
+    x *= 5
+    y *= 5
     x_int = int(x)
     y_int = int(y)
     x_frac = x - x_int
@@ -47,7 +47,20 @@ def val_noise(x, y):
 
 # Ваш код здесь:
 def func(x, y):
-    return val_noise(x, y), val_noise(x, y), val_noise(x, y)
+    # Переменная частоты
+    value = 0
+    # Пременная амплитуды
+    amplitude = 0.6
+    # Пременная для увеличения частоты на каждом уровне
+    frequency = 1.0
+    
+    # Алгоритм фрактального шума (генерация шума на каждом уровне)
+    for i in range(0, 10):
+        value += amplitude * val_noise(x * frequency, y * frequency)
+        frequency *= 2
+        amplitude *= 0.5
+    
+    return value, value, 1
 
 
 label = tk.Label()
