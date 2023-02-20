@@ -6,3 +6,6 @@ def Levenshtein(a, b, i, j):
         return Levenshtein(a, b, i - 1, j - 1)
     else:
         return 1 + min(Levenshtein(a, b, i - 1, j), Levenshtein(a, b, i, j - 1), Levenshtein(a, b, i - 1, j - 1))
+
+
+print(Levenshtein('Hello, world!', 'Goodbye, world!', 1, 2))

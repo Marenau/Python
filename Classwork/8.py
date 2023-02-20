@@ -16,11 +16,29 @@ def manhattan_distance(y, z):
         summ += m.fabs(y[i - 1] - z[i - 1])
     return summ
 
-def cosine_distance(a, b):
-    dot_product = sum(x * y for x, y in zip(a, b))
-    a_norm = m.sqrt(sum(x ** 2 for x in a))
-    b_norm = m.sqrt(sum(y ** 2 for y in b))
-    return 1 - (dot_product / (a_norm * b_norm))
+def chebyshuov_distance(y, z):
+    n = len(y)
+    maximum = y[0]
+    for i in range(1, n + 1):
+        local_dist = abs(y[i - 1] - z[i - 1])
+        if maximum < local_dist:
+            maximum = local_dist
+    return maximum
+
+def square_euclidean_distance(y, z):
+    sixth_ans = 0
+    n = len(y)
+    for i in range(0, n):
+        sixth_ans += (y[i] - z[i]) ** 2
+    return sixth_ans
+
+def minkovskiy_distance(y, z):
+    n = len(y)
+    h = 5
+    result = 0
+    for i in range(0, n):
+        result += m.fabs((y[i] - z[i]) ** h)
+    return result ** (1 / h)
 
 def visualize(distance_metrics, y, z, move=1):
     moved_z = [i + move for i in z]
@@ -37,6 +55,6 @@ def visualize(distance_metrics, y, z, move=1):
     axis.set_xticks(x, labels=[f'd_{i + 1}' for i in x])
 
 
-distance_metrics = [euclidean_distance, manhattan_distance, cosine_distance]
+distance_metrics = [euclidean_distance, manhattan_distance, chebyshuov_distance, square_euclidean_distance, minkovskiy_distance]
 visualize(distance_metrics, [1, 0.5, 1], [0.5, 2, 1], 1)
 matplotlib.show()

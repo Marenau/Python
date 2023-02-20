@@ -5,7 +5,7 @@ def f(n, m):
     summ1 = 0
     for i in range(1, n + 1):
         for j in range(1, m + 1):
-            summ1 += m.ceil(i) - 76 * j
+            summ1 += i // 1 - 76 * j
     summ1 *= 22
 
     summ2 = 0

@@ -19,4 +19,4 @@ def count_characters(s):
 
 
 print(f('Alalalalar', 'a'))
-print(count_characters('a'))
+print(count_characters('Alalalalar'))
