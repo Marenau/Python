@@ -55,6 +55,7 @@ def visualize(distance_metrics, y, z, move=1):
     axis.set_xticks(x, labels=[f'd_{i + 1}' for i in x])
 
 
-distance_metrics = [euclidean_distance, manhattan_distance, chebyshuov_distance, square_euclidean_distance, minkovskiy_distance]
+distance_metrics = [euclidean_distance, manhattan_distance, 
+chebyshuov_distance, square_euclidean_distance, minkovskiy_distance]
 visualize(distance_metrics, [1, 0.5, 1], [0.5, 2, 1], 1)
 matplotlib.show()

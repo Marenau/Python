@@ -1,7 +1,7 @@
 
 words = ["language!", "programming", "Python", "the", "love", "I"]
 str = ''
-for x in reversed(words):
+for x in words[::-1]:
     str += x + " "
 
 str = str.strip()
