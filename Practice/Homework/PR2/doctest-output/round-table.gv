@@ -1,0 +1,26 @@
+// Graph
+digraph {
+	1 [label=start fillcolor=grey shape=Mdiamond style=filled]
+	0 [label=end fillcolor=green shape=Msquare style=filled]
+	1 -> 2
+	1 -> 3
+	1 -> 4
+	2 -> 5
+	2 -> 1
+	3 -> 1
+	3 -> 6
+	4 -> 1
+	4 -> 6
+	5 -> 2
+	5 -> 7
+	6 -> 4
+	6 -> 3
+	6 -> 9
+	7 -> 5
+	7 -> 8
+	8 -> 7
+	8 -> 0
+	9 -> 6
+	9 -> 10
+	10 -> 9
+}
