@@ -30,7 +30,7 @@ data = [0xE3238557, 0x6204A1F8, 0xE6537611, 0x174E5747,
         ] # Зашифрованное сообщение
 
 # Создаем список результатов расшифровки
-result = [decrypt([data[i], data[i + 1]], k) for i in range(0, 39, 2)]
+result = [decrypt([data[i], data[i + 1]], k) for i in range(0, 40, 2)]
 # Создаем расшифрованный текст, объединяя каждую пару символов с помощью метода join()
 decoded_text = ''.join([chr(pair[0]) + chr(pair[1]) for pair in result])
 

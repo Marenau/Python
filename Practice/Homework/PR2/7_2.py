@@ -1,5 +1,6 @@
 import graphviz
 
+
 class Room:
     def __init__(self, name, list):
         self.name = name  # Имя комнаты
@@ -77,4 +78,4 @@ class Game:
 run = 1 # Начальная комната
 game = Game() # Создание объекта класса Game
 game.render_graph() # Вызов метода отрисовки диаграммы комнат в формате Graphviz
-print(game.create_string_diagram()) # Вызов метода создания диаграммы комнат за счёт строки в формате Graphviz
+print(game.create_string_diagram()) # Вызов метода создание диаграммы комнат за счёт строки в формате Graphviz
