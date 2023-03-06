@@ -9,11 +9,11 @@ def main(x):
     N4 = int_x & 0b11
     int_x >>= 2
     N5 = int_x & 0b111
-    return [{'N1', N1},
-            {'N2', N2},
-            {'N3', N3},
-            {'N4', N4},
-            {'N5', N5}]
+    return {'N1': N1,
+           'N2': N2,
+           'N3': N3,
+           'N4': N4,
+           'N5': N5}
 
 
 print(main('0xb9a562'))
