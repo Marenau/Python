@@ -1,15 +1,21 @@
 import re
 
+
 def main(data_string):
-    pattern = r"begin\s+data\s*\[(.*?)\]\s*\|\> @'(\w+)'\.end"
-    regex = re.compile(pattern)
-    matches = regex.findall(data_string)
-
     result = {}
-    for match in matches:
-        values = [val.strip('"\' ') for val in match[0].split(';')]
-        result[match[1]] = values
-
+    block_regex = r'\.end,'
+    data_regex = r'data\s*\[(.*?)\]'
+    id_regex = r'@\'(.*?)\''
+    blocks = re.split(block_regex, data_string)
+    for block in blocks:
+        match = re.search(data_regex, block)
+        if match:
+            data_str = match.group(1)
+            data = [x.strip('"\' ') for x in data_str.split(';')]
+            match = re.search(id_regex, block)
+            if match:
+                id_ = match.group(1)
+                result[id_] = data
     return result
 
 
