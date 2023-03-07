@@ -7,7 +7,7 @@ def main(dict):
     sum += dict.get('L2')
     sum = sum << 5
     sum += dict.get('L1')
-    return sum
+    return str(sum)
 
 print(main({'L1': 13, 'L2': 785, 'L3': 3, 'L4': 0}))
 print(main({'L1': 30, 'L2': 842, 'L3': 2, 'L4': 1}))

@@ -8,7 +8,7 @@ def main(dict):
     sum += dict[1][1]
     sum = sum << 7
     sum += dict[0][1]
-    return hex(sum)
+    return str(hex(sum))
 
 print(main([('T1', 110), ('T2', 6), ('T4', 207), ('T5', 859)]))
 print(main([('T1', 100), ('T2', 3), ('T4', 128), ('T5', 665)]))
