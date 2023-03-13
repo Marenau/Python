@@ -28,7 +28,7 @@ def det(A):
 
 
 def minor(A, i, j):
-    return (-1) ** (i + j) * det(A)
+    return det(submatrix(A, i, j))
 
 
 A = [[0, 2, 1, 4],
