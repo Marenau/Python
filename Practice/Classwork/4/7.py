@@ -36,7 +36,7 @@ def alg(A, i, j):
 
 
 def algmatrix(A):
-    res = []
+    res = [[0] * len(A) for _ in range(len(A[0]))]
     for i in range(len(A)):
         for j in range(len(A[0])):
             res[i][j] = alg(A, i, j)
@@ -44,15 +44,17 @@ def algmatrix(A):
 
 
 def transpose(A):
-    B = [[0] * len(A) for _ in range(len(A[0]))]
-    for i in range(len(A)):
-        for j in range(len(A[0])):
-            B[i][j] = A[i][j]
-    return A
+    return [[A[j][i] for j in range(len(A))] for i in range(len(A[0]))]
 
 
 def inv(A):
-    return transpose(algmatrix(A)) / det(A)
+    trans_a = transpose(algmatrix(A))
+    det_a = det(A)
+    res = [[0] * len(trans_a) for _ in range(len(trans_a[0]))]
+    for i in range(len(trans_a)):
+        for j in range(len(trans_a[0])):
+            res[i][j] = trans_a[i][j] / det_a
+    return res
 
 
 A = [[0, 2, 1, 4],
