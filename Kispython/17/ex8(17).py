@@ -1,12 +1,12 @@
 import re
 
 
-def main(text):
+def main(s):
     pattern = r"do equ (\w+)\s*=\s*\[([^\]]*)\]\s*end"  # неправильно
-    matches = re.findall(pattern, text)
+    matches = re.findall(pattern, s)
     result = {}
     for key, values in matches:
-        result[key] = [v.strip() for v in values.split(".")]
+        result[key] = [v.strip().replace("'", "") for v in values.split(".")]
     return result
     
 
