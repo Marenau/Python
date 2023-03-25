@@ -7,13 +7,14 @@ def generate_sprite(width, height):
     lst = [random.randint(0, 15) for s in range(2)]
     for i in range(0, len(lst) + 1, 2):
         lst.insert(i, 0)
+    lst.insert(len(lst), 0)
     sprite = [[lst[random.randint(0, len(lst) - 1)] for i in range(width)] for j in range(height)]
     for i in range(height):
         sprite[i][:width//2] = sprite[i][width//2 + 1:][::-1]
     return sprite
 
 sprite_width = 7
-sprite_height = 8
+sprite_height = 7
 big_sprite_height = 100
 big_sprite_width = 200
 
