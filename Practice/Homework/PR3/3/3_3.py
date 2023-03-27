@@ -13,8 +13,8 @@ def generate_sprite(width, height):
         sprite[i][:width//2] = sprite[i][width//2 + 1:][::-1]
     return sprite
 
-sprite_width = 7
-sprite_height = 7
+sprite_width = 3
+sprite_height = 5
 big_sprite_height = 100
 big_sprite_width = 200
 

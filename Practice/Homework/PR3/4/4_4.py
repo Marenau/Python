@@ -10,13 +10,13 @@ def load_csv(filename):
         return list(csv.reader(f, delimiter=','))
 
 # id, task, variant, group, time
-messages = load_csv('D:\messages.csv')
+messages = load_csv('C:\Python\messages.csv')
 
 # id, message_id, time, status
-checks = load_csv('D:\checks.csv')
+checks = load_csv('C:\Python\checks.csv')
 
 # task, variant, group, time, status, achievements
-statuses = load_csv('D:\statuses.csv')
+statuses = load_csv('C:\Python\statuses.csv')
 
 # Создание словарей для хранения времени сообщений, проверок и изменения статусов по задачам
 message_times = {}
@@ -64,7 +64,7 @@ for task in message_times.keys():
 
     # Создание графика активности студентов по задаче за период с начала семестра
     plt.plot(activity)
-    plt.xlabel('Дни с начала семестра')
+    plt.xlabel('Дни с начала выгрузки задачи')
     plt.ylabel('Количество сообщений/проверок/статусов')
     plt.title(f'Задача "{int(task) + 1}"')
     plt.show()

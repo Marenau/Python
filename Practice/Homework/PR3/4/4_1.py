@@ -10,13 +10,13 @@ def load_csv(filename):
         return list(csv.reader(f, delimiter=','))
 
 # id, task, variant, group, time
-messages = load_csv('D:\messages.csv')
+messages = load_csv('C:\Python\messages.csv')
 
 # id, message_id, time, status
-checks = load_csv('D:\checks.csv')
+checks = load_csv('C:\Python\checks.csv')
 
 # task, variant, group, time, status, achievements
-statuses = load_csv('D:\statuses.csv')
+statuses = load_csv('C:\Python\statuses.csv')
 
 # Создание словаря, где ключами являются дни недели (0-6), а значениями - количество сообщений/статусов
 message_counts = {i: 0 for i in range(7)}

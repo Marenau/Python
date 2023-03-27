@@ -10,13 +10,13 @@ def load_csv(filename):
         return list(csv.reader(f, delimiter=','))
 
 # id, task, variant, group, time
-messages = load_csv('D:\messages.csv')
+messages = load_csv('C:\Python\messages.csv')
 
 # id, message_id, time, status
-checks = load_csv('D:\checks.csv')
+checks = load_csv('C:\Python\checks.csv')
 
 # task, variant, group, time, status, achievements
-statuses = load_csv('D:\statuses.csv')
+statuses = load_csv('C:\Python\statuses.csv')
 
 # Подсчет количества отправленных решений для каждой задачи
 counts = {}
@@ -29,7 +29,7 @@ for task, _, _, _, status, _ in statuses:
 
 # Построение графика
 plt.bar(counts.keys(), counts.values())
-plt.xticks(rotation=90)
+plt.xticks()
 plt.ylabel('Количество попыток')
 plt.title('Количество попыток решения задачи')
 plt.show()
