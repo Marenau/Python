@@ -17,5 +17,5 @@ plt.show()
 
 plt.figure(figsize=(6,6))
 plt.plot(x_t, y_t, color='red')
-plt.fill(x_t, y_t, color='red', alpha=0.2)
+plt.fill(x_t, y_t, color='red')
 plt.show()
