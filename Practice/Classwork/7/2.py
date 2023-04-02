@@ -27,6 +27,6 @@ def draw(figure_func, bbox=(-1.3,1.3)):
     plt.show()
 
 def figure_func(x, y, z):
-    return (x**2 + 9*(y**2)/4 + z**2 - 1)**3 - x**2*z**3 - 9*(y**2)*(z**3)/200
+    return (x**2 + 9*y**2/4 + z**2 - 1)**3 - x**2*z**3 - 9*y**2*z**3/200
 
 draw(figure_func)
