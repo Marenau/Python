@@ -2,44 +2,40 @@ class StateMachine:
     def __init__(self):
         self.state = 'A'
 
-    def jog(self):
-        match(self.state):
-            case 'A':
-                self.state = 'B'
-                return 0
-            case 'D':
-                self.state = 'B'
-                return 5
-            case 'E':
-                self.state = 'B'
-                return 7
-        raise MealyError("jog")
+    def shift(self):
+        if self.state == 'A':
+            self.state = 'B'
+            return 0
+        elif self.state == 'C':
+            self.state = 'D'
+            return 3
+        raise MealyError('shift')
 
-    def tweak(self):
-        match(self.state):
-            case 'B':
-                self.state = 'C'
-                return 1
-            case 'C':
-                self.state = 'D'
-                return 2
-            case 'D':
-                self.state = 'E'
-                return 3
-            case 'E':
-                self.state = 'F'
-                return 6
-        raise MealyError("tweak")
+    def cull(self):
+        if self.state == 'B':
+            self.state = 'C'
+            return 2
+        elif self.state == 'E':
+            self.state = 'F'
+            return 6
+        elif self.state == 'F':
+            self.state = 'A'
+            return 7
+        raise MealyError('cull')
 
-    def cut(self):
-        match(self.state):
-            case 'D':
-                self.state = 'A'
-                return 4
-            case 'E':
-                self.state = 'C'
-                return 8
-        raise MealyError("cut")
+    def hurry(self):
+        if self.state == 'A':
+            self.state = 'D'
+            return 1
+        elif self.state == 'C':
+            self.state = 'A'
+            return 4
+        elif self.state == 'D':
+            self.state = 'E'
+            return 5
+        elif self.state == 'F':
+            return 8
+        raise MealyError('hurry')
 
 
 class MealyError(Exception):
@@ -62,37 +58,29 @@ def raises(method, error):
 def test():
     o = main()
     assert o.state == 'A'
-    raises(lambda: o.cut(), MealyError)
-    raises(lambda: o.tweak(), MealyError)
-    assert o.jog() == 0
-    assert o.state == 'B'
-    raises(lambda: o.cut(), MealyError)
-    raises(lambda: o.jog(), MealyError)
-    assert o.tweak() == 1
-    assert o.state == 'C'
-    raises(lambda: o.cut(), MealyError)
-    raises(lambda: o.jog(), MealyError)
-    assert o.tweak() == 2
-    assert o.state == 'D'
-    assert o.cut() == 4
-    o.state = 'D'
-    assert o.jog() == 5
-    o.state = 'D'
-    assert o.tweak() == 3
-    assert o.state == 'E'
-    assert o.cut() == 8
-    o.state = 'E'
-    assert o.jog() == 7
-    o.state = 'E'
-    assert o.tweak() == 6
-    assert o.state == 'F'
-    raises(lambda: o.jog(), MealyError)
-    raises(lambda: o.cut(), MealyError)
-    raises(lambda: o.tweak(), MealyError)
+    raises(lambda: o.cull(), MealyError)
+    assert o.shift() == 0
+    raises(lambda: o.shift(), MealyError)
+    raises(lambda: o.hurry(), MealyError)
+    assert o.cull() == 2
+    raises(lambda: o.cull(), MealyError)
+    assert o.hurry() == 4
+    assert o.hurry() == 1
+    raises(lambda: o.cull(), MealyError)
+    o.state = 'C'
+    assert o.shift() == 3
+    raises(lambda: o.shift(), MealyError)
+    assert o.hurry() == 5
+    raises(lambda: o.shift(), MealyError)
+    raises(lambda: o.hurry(), MealyError)
+    assert o.cull() == 6
+    raises(lambda: o.shift(), MealyError)
+    assert o.hurry() == 8
+    assert o.cull() == 7
     o.state = 'X'
-    raises(lambda: o.jog(), MealyError)
-    raises(lambda: o.tweak(), MealyError)
-    raises(lambda: o.cut(), MealyError)
+    raises(lambda: o.shift(), MealyError)
+    raises(lambda: o.cull(), MealyError)
+    raises(lambda: o.hurry(), MealyError)
 
 
 test()
