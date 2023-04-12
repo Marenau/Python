@@ -1,4 +1,8 @@
-def main(table):
+from copy import deepcopy
+
+
+def main(table1):
+    table = deepcopy(table1)
     empty_cells = [(i, j) for i in range(len(table)) for j in
                    range(len(table[0])) if table[i][j] is None]
     for i, j in reversed(empty_cells):
