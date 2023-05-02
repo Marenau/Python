@@ -32,6 +32,6 @@ def visualize_module_hierarchy(project_path):
 
     # Рисуем граф и сохраняем его в файл
     dot.format = 'png'
-    dot.render('C:\\Users\\Light Flight PC\\OneDrive\\Рабочий стол\\Python\\Python\\Practice\\Homework\\PR4\\5\\module_hierarchy', view=True)
+    dot.render('C:\\Users\\malin\\OneDrive\\Рабочий стол\\Python\\Python\\Practice\\Homework\\PR4\\5\\module_hierarchy', view=True)
 
-print(visualize_module_hierarchy("C:\\Users\\Light Flight PC\\OneDrive\\Рабочий стол\\Python\\Python\\Practice\\Homework\\PR4\\5"))
+print(visualize_module_hierarchy("C:\\Users\\malin\\OneDrive\\Рабочий стол\\Python\\Python\\Practice\\Homework\\PR4\\5"))

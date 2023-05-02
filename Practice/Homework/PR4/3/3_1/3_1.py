@@ -13,6 +13,6 @@ def draw(vertices, edges):
     
     # Рисуем граф и сохраняем его в файл
     dot.format = 'png'
-    dot.render('C:\\Users\\Light Flight PC\\OneDrive\\Рабочий стол\\Python\\Python\\Practice\\Homework\\PR4\\3\\3_1\\graph', view=True)
+    dot.render('C:\\Users\\malin\\OneDrive\\Рабочий стол\\Python\\Python\\Practice\\Homework\\PR4\\3\\3_1\\graph', view=True)
 
 draw([(1, 'v1'), (2, 'v2')], [(1, 2), (2, 3), (2, 2)])

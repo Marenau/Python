@@ -5,6 +5,7 @@ class Chaos:
     def __init__(self, mu, state):
         self.mu = mu
         self.state = state
+        self.stabilize()
     
     def stabilize(self):
         for _ in range(1000):
@@ -35,11 +36,9 @@ def draw(vertices, edges):
     
     # Рисуем граф и сохраняем его в файл
     dot.format = 'png'
-    dot.render('C:\\Users\\Light Flight PC\\OneDrive\\Рабочий стол\\Python\\Python\\Practice\\Homework\\PR4\\3\\3_3\\graph', view=True)
+    dot.render('C:\\Users\\malin\\OneDrive\\Рабочий стол\\Python\\Python\\Practice\\Homework\\PR4\\3\\3_3\\graph', view=True)
     
 def visualize(logistic_map):
-    # Стабилизируем состояние
-    logistic_map.stabilize()
 
     # Создаем список значений состояния в зависимости от времени
     state_values = []

@@ -2,6 +2,7 @@ class Chaos:
     def __init__(self, mu, state):
         self.mu = mu
         self.state = state
+        self.stabilize()
     
     def stabilize(self):
         for _ in range(1000):
@@ -21,8 +22,4 @@ class LogisticMap(Chaos):
         return self.state
 
 o = LogisticMap(2, 0.1)
-print(o.next(), o.next(), o.next())
-
-o = LogisticMap(2, 0.1)
-o.stabilize()
 print(o.next(), o.next(), o.next())
