@@ -1,16 +1,9 @@
 from copy import deepcopy
+from collections import OrderedDict
 
 
 def main(table1):
     table = deepcopy(table1)
-    # Преобразовываем списки в кортежи
-    table = [tuple(row) for row in table1]
-
-    # Удаляем дубликаты
-    table = list(set(table))
-
-    # Преобразовываем кортежи обратно в списки
-    table = [list(row) for row in table]
     
     table = [[row[j] for j in range(len(row)) if j not in (0, 3)] for row in table]
 
@@ -20,7 +13,7 @@ def main(table1):
     transformation_dict = {
         0: lambda x: x[0 : x.find('[at]')],
         1: lambda x: x.replace('.', '/'),
-        2: lambda x: x[x.find(' '):] + ' ' + x[0:1] + '.'
+        2: lambda x: x[x.find(' ') + 1:] + ' ' + x[0:1] + '.'
     }
 
     # Применяем преобразования к ячейкам таблицы
@@ -28,6 +21,10 @@ def main(table1):
         for j in range(len(table[0])):
             table[i][j] = transformation_dict[j](table[i][j])
 
+    # Удаляем повторяющиеся строки, сохраняя порядок
+    table = list(OrderedDict((tuple(row), row) for row in table).values())
+
+    
     return table
 
 
