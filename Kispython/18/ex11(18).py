@@ -78,8 +78,8 @@ def read_b(reader):
 def read_a(reader):
     a1 = read_b(reader)
     a2 = reader.read(Types.uint64)
-    a3 = reader.read(Types.uint16)
-    a4 = reader.read(Types.uint16)
+    a3 = reader.read(Types.int16)
+    a4 = reader.read(Types.int16)
     a5 = [reader.read(Types.int16) for _ in range(2)]
     a6 = reader.read(Types.uint32)
     a7 = reader.read(Types.uint16)
