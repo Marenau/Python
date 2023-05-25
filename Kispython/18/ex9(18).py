@@ -11,7 +11,7 @@ def main(table1):
     transformation_dict = {
         0: lambda x: x[6:8] + '/'+ x[3:5] + '/'+ x[0:2],
         1: lambda x: x.replace('@', '[at]'),
-        2: lambda x: 0 if x == 'нет' else 1
+        2: lambda x: '0' if x == 'нет' else '1'
     }
 
     for i in range(len(table)):
